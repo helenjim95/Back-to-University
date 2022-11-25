@@ -22,7 +22,7 @@ public class ExerciseInstructor extends Participant {
 //    Otherwise he/she gets added as explained above.
     @Override
     public void attend(Lecture lecture) {
-        if (this.getLecture().equals(lecture)) {
+        if (!this.getLecture().equals(lecture)) {
             lecture.addParticipant(new Student(this.getFirstName(), this.getLastName(), this.getTumID()));
         } else {
             lecture.addParticipant(this);
