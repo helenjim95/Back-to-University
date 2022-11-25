@@ -108,8 +108,10 @@ public class Lecture {
         }
     }
     public void addParticipants(List<Participant> participants) {
-        for (Participant participant : participants) {
-            addParticipant(participant);
+        if (participants.size() > 0) {
+            for (Participant participant : participants) {
+                addParticipant(participant);
+            }
         }
     }
     public void takePlace() {

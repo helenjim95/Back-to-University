@@ -39,7 +39,7 @@ public class Lecturer extends Participant {
 //    "The lecture [lecture name] is already held by another lecturer.".
 //    Otherwise, add the lecture to the list of lectures.
     public void addLecture(Lecture lecture) {
-        if (lecture.getLecturer() != null) {
+        if (lecture.getLecturer() != null && !lecture.getLecturer().equals(this)) {
             System.out.printf("The lecture %s is already held by another lecturer.%n", lecture.getName());
         } else {
             this.lectures.add(lecture);
