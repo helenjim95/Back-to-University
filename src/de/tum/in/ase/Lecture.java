@@ -12,12 +12,12 @@ public class Lecture {
     private Lecturer lecturer;
     private LectureHall lectureHall;
 
-    public Lecture(String id, String name, List<Student> students, List<Tutor> tutors, List<ExerciseInstructor> exerciseInstructors, Lecturer lecturer, LectureHall lectureHall) {
+    public Lecture(String id, String name, Lecturer lecturer, LectureHall lectureHall) {
         this.id = id;
         this.name = name;
-        this.students = students;
-        this.tutors = tutors;
-        this.exerciseInstructors = exerciseInstructors;
+        this.students = new ArrayList<>();
+        this.tutors =  new ArrayList<>();
+        this.exerciseInstructors =  new ArrayList<>();
         this.lecturer = lecturer;
         this.lectureHall = lectureHall;
     }

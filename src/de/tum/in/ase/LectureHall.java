@@ -84,7 +84,7 @@ public class LectureHall {
         for (int row = 0; row < this.rows; row++) {
             rowInfo += String.format("Row %d: ", row);
             for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
-                if (rowsOfStudents[row][col].getName() != null) {
+                if (rowsOfStudents[row][col] != null) {
                     rowInfo += String.format("[%s]", rowsOfStudents[row][col].getName());
                 } else {
                     rowInfo += "[]";

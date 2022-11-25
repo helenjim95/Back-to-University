@@ -7,10 +7,10 @@ public class Lecturer extends Participant {
 
     private List<Lecture> lectures;
 
-    public Lecturer(String firstName, String lastName, String tumID, String title, List<Lecture> lectures) {
+    public Lecturer(String firstName, String lastName, String tumID, String title) {
         super(firstName, lastName, tumID);
         this.title = title;
-        this.lectures = lectures;
+        this.lectures = new ArrayList<>();
     }
 
     public String getName() {

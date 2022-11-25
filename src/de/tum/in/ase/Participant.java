@@ -24,6 +24,8 @@ public abstract class Participant {
         return lastName;
     }
 
+
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
