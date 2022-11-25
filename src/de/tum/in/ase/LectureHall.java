@@ -60,9 +60,10 @@ public class LectureHall {
             System.out.printf("%s hall doesn't have enough places for all the students!%n", name);
             System.out.printf("We can place only the first %d out of %d students.%n", capacity, waitingStudents.size());
         }
-        for (Student student : waitingStudents.subList(0, capacity)) {
-            for (int row = 0; row < rows; row++) {
-                for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
+                for (Student student : waitingStudents) {
                     if (rowsOfStudents[row][col] == null) {
                         rowsOfStudents[row][col] = student;
                     }
