@@ -43,15 +43,15 @@ public class Main {
     //TODO implement methods generateStudents and generateTutors
     //TODO think of the most suitable access modifier for those helper methods
 
-    public static List<Student> generateStudents(int amount){
+    static List<Student> generateStudents(int amount){
         List<Student> studentList = new ArrayList<>();
         for (int i = 0; i < amount; i++) {
-            studentList.add(new Student("Student", Integer.toString(i), generateTumID()));
+            studentList.add(new Student("Student", Integer.toString(i + 1), generateTumID()));
         }
         return studentList;
     }
 
-    public static String generateTumID() {
+    static String generateTumID() {
 
         final String alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase();
 
@@ -76,7 +76,7 @@ public class Main {
         return tumID.toString();
     }
 
-    public static List<Tutor> generateTutors(int amount,Lecture lecture){
+    static List<Tutor> generateTutors(int amount,Lecture lecture){
         List<Tutor> tutorList = new ArrayList<>();
         for (int i = 0; i < amount; i++) {
             tutorList.add(new Tutor("Tutor", Integer.toString(i), generateTumID(), lecture));
@@ -84,7 +84,7 @@ public class Main {
         return tutorList;
     }
 
-    public static List<ExerciseInstructor> generateExerciseInstructor(int amount,Lecture lecture){
+    static List<ExerciseInstructor> generateExerciseInstructor(int amount,Lecture lecture){
         List<ExerciseInstructor> exerciseInstructorList = new ArrayList<>();
         for (int i = 0; i < amount; i++) {
             exerciseInstructorList.add(new ExerciseInstructor("ExerciseInstructor", Integer.toString(i), generateTumID(), lecture));
