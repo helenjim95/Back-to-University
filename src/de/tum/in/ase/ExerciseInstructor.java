@@ -29,9 +29,10 @@ public class ExerciseInstructor extends Participant {
         }
     }
 
-        public String toString () {
-            return "Exercise Instructor " + this.getName();
-        }
+    @Override
+    public String toString () {
+        return "Exercise Instructor " + this.getName();
+    }
 }
 
 

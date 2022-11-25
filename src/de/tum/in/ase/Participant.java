@@ -42,5 +42,5 @@ public abstract class Participant {
         return firstName + " " + lastName;
     }
 
-    public void attend(Lecture lecture) {}
+    public abstract void attend(Lecture lecture);
 }

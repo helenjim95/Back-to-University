@@ -59,6 +59,7 @@ public class Lecturer extends Participant {
         System.out.println("This is all for today. See you next week!");
     }
 
+    @Override
     public String toString() {
         return this.getTitle() + " " + this.getName();
     }
