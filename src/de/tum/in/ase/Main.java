@@ -24,8 +24,9 @@ public class Main {
         List<ExerciseInstructor> exerciseInstructorList2 = generateExerciseInstructor(3, lecture2);
         List<ExerciseInstructor> exerciseInstructorList3 = generateExerciseInstructor(9, lecture3);
         List<Lecture> lectures = new ArrayList<>();
-        System.out.println(lectureHall2.getRows());
-        lectureHall2.placeStudents(studentList2);
+//        System.out.println(lectureHall2.getRows());
+//        lectureHall2.placeStudents(studentList2);
+        tutorList1.get(0).attend(lecture2);
         lectures.add(lecture1);
         lectures.add(lecture2);
         lectures.add(lecture3);

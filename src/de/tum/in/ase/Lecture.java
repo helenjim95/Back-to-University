@@ -84,10 +84,8 @@ public class Lecture {
 //    Only difference here is that the method parameter is a list of Participants,
 //    so the steps have to be done for every single Participant now.
     public void addParticipant(Participant participant) {
-        if (students.contains(participant) || tutors.contains(participant) || exerciseInstructors.contains(participant)) {
+        if (students.contains(participant) || tutors.contains(participant) || exerciseInstructors.contains(participant) || lecturer.equals(participant)) {
             System.out.printf("%S tumID:%s already attends/holds the lecture.%n", participant.getName(), participant.getTumID());
-        } else if (lecturer != null) {
-            System.out.println("This lecture already has a lecturer!");
         }
         else {
             String className = participant.getClass().getSimpleName();
@@ -101,6 +99,14 @@ public class Lecture {
                 case "ExerciseInstructor":
                     exerciseInstructors.add((ExerciseInstructor) participant);
                     break;
+                case "Lecturer":
+                    if (!lecturer.equals(participant)) {
+                        System.out.println("This lecture already has a lecturer!");
+                    } else {
+                        setLecturer((Lecturer) participant);
+                        ((Lecturer) participant).getLectures().add(this);
+                    }
+                    break;
                 default:
                     System.out.println("No such participants allowed in this lecture!");
                     break;
@@ -108,7 +114,7 @@ public class Lecture {
         }
     }
     public void addParticipants(List<Participant> participants) {
-        if (participants.size() > 0) {
+        if (!participants.isEmpty()) {
             for (Participant participant : participants) {
                 addParticipant(participant);
             }
