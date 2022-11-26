@@ -91,7 +91,9 @@ public class LectureHall {
                     rowInfo += "[]";
                 }
             }
-            rowInfo += "\n";
+            if (row < this.rows - 1) {
+                rowInfo += "\n";
+            }
         }
         return lectureHallName + rowInfo;
     }
