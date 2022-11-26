@@ -8,8 +8,7 @@ public class Main {
 
     public static void main(String[] args){
         LectureHall lectureHall1 = new LectureHall("LectureHall1", 270);
-        LectureHall lectureHall2 = new LectureHall("LectureHall2", 90);
-    //  String id, String name, List<Student> students, List<Tutor> tutors, List<ExerciseInstructor> exerciseInstructors, Lecturer lecturer, LectureHall lectureHall
+        LectureHall lectureHall2 = new LectureHall("LectureHall2", 40);
         Lecturer lecturer1 = new Lecturer("Lecturer", "1", generateTumID(), "Professor");
         Lecturer lecturer2 = new Lecturer("Lecturer", "2", generateTumID(), "Professor");
         Lecture lecture1 = new Lecture("1","lecture1", lecturer1, lectureHall1);
@@ -25,6 +24,8 @@ public class Main {
         List<ExerciseInstructor> exerciseInstructorList2 = generateExerciseInstructor(3, lecture2);
         List<ExerciseInstructor> exerciseInstructorList3 = generateExerciseInstructor(9, lecture3);
         List<Lecture> lectures = new ArrayList<>();
+        System.out.println(lectureHall2.getRows());
+        lectureHall2.placeStudents(studentList2);
         lectures.add(lecture1);
         lectures.add(lecture2);
         lectures.add(lecture3);

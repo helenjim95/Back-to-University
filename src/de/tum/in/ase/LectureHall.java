@@ -16,7 +16,7 @@ public class LectureHall {
         } else {
             this.capacity = capacity;
         }
-        this.rows = capacity / MAX_STUDENT_PER_ROW;
+        this.rows = this.capacity / MAX_STUDENT_PER_ROW;
         this.rowsOfStudents = new Student[this.rows][MAX_STUDENT_PER_ROW];
     }
 
@@ -62,13 +62,17 @@ public class LectureHall {
                 System.out.printf("We can place only the first %d out of %d students.%n", capacity, waitingStudents.size());
             }
 
-            int listIndex = 0;
-            while (listIndex < waitingStudents.size()) {
+            while (!waitingStudents.isEmpty()) {
                 for (int row = 0; row < rows; row++) {
-                    for (int col = 0; col < rowsOfStudents[rows].length; col++) {
+                    for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
+                        if (waitingStudents.isEmpty()) {
+                            break;
+                        }
+//                        System.out.println("current student in row:" + row + " col:" + col + " is " + rowsOfStudents[row][col]);
                         if (rowsOfStudents[row][col] == null) {
-                            rowsOfStudents[row][col] = waitingStudents.get(listIndex);
-                            listIndex += 1;
+                            rowsOfStudents[row][col] = waitingStudents.remove(0);
+//                            System.out.println("row:" + row + " col:" + col + " ->" + rowsOfStudents[row][col]);
+
                         }
                     }
                 }
