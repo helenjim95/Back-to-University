@@ -61,11 +61,15 @@ public class LectureHall {
                 System.out.printf("%s hall doesn't have enough places for all the students!%n", name);
                 System.out.printf("We can place only the first %d out of %d students.%n", capacity, waitingStudents.size());
             }
+
             int listIndex = 0;
-            for (int row = 0; row < rows; row++) {
-                for (int col = 0; col < rowsOfStudents[rows].length; col++) {
-                    if (rowsOfStudents[row][col] == null) {
-                        rowsOfStudents[row][col] = waitingStudents.get(listIndex++);
+            while (listIndex < waitingStudents.size()) {
+                for (int row = 0; row < rows; row++) {
+                    for (int col = 0; col < rowsOfStudents[rows].length; col++) {
+                        if (rowsOfStudents[row][col] == null) {
+                            rowsOfStudents[row][col] = waitingStudents.get(listIndex);
+                            listIndex += 1;
+                        }
                     }
                 }
             }
