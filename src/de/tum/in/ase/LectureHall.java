@@ -56,31 +56,49 @@ public class LectureHall {
 //        prints out the size of the list to the console: "Waiting students: [number of waiting students]"
 //Now it should be checked, if the amount of students is too big for the LectureHall
         System.out.printf("Waiting students: %d%n", waitingStudents.size());
-        if (waitingStudents.size() > 0) {
-            if (waitingStudents.size() > capacity) {
-                System.out.printf("%s hall doesn't have enough places for all the students!%n", name);
-                System.out.printf("We can place only the first %d out of %d students.%n", capacity, waitingStudents.size());
-            }
-
-            int amountOfStudentFilled = 0;
-            while (!waitingStudents.isEmpty() && amountOfStudentFilled < capacity) {
-                for (int row = 0; row < rows; row++) {
-                    for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
-                        if (waitingStudents.isEmpty() || amountOfStudentFilled == capacity) {
-                            break;
-                        }
+        if (waitingStudents.size() > capacity) {
+            System.out.printf("%s hall doesn't have enough places for all the students!%n", name);
+            System.out.printf("We can place only the first %d out of %d students.%n", capacity, waitingStudents.size());
+            if (waitingStudents.size() > 0) {
+                int amountOfStudentFilled = 0;
+                while (!waitingStudents.isEmpty() && amountOfStudentFilled < capacity) {
+                    for (int row = 0; row < rows; row++) {
+                        for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
+                            if (waitingStudents.isEmpty() || amountOfStudentFilled == capacity) {
+                                break;
+                            }
 //                        System.out.println("current student in row:" + row + " col:" + col + " is " + rowsOfStudents[row][col]);
-                        if (rowsOfStudents[row][col] == null) {
-                            amountOfStudentFilled += 1;
-                            rowsOfStudents[row][col] = waitingStudents.remove(0);
+                            if (rowsOfStudents[row][col] == null) {
+                                amountOfStudentFilled += 1;
+                                rowsOfStudents[row][col] = waitingStudents.remove(0);
 //                            System.out.println("row:" + row + " col:" + col + " ->" + rowsOfStudents[row][col]);
+                            }
                         }
                     }
                 }
             }
-            System.out.printf("All students are sitting in the lecture hall.%n");
-            System.out.println(toString());
+        } else {
+            if (waitingStudents.size() > 0) {
+                int amountOfStudentFilled = 0;
+                while (!waitingStudents.isEmpty() && amountOfStudentFilled < capacity) {
+                    for (int row = 0; row < rows; row++) {
+                        for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
+                            if (waitingStudents.isEmpty() || amountOfStudentFilled == capacity) {
+                                break;
+                            }
+    //                        System.out.println("current student in row:" + row + " col:" + col + " is " + rowsOfStudents[row][col]);
+                            if (rowsOfStudents[row][col] == null) {
+                                amountOfStudentFilled += 1;
+                                rowsOfStudents[row][col] = waitingStudents.remove(0);
+    //                            System.out.println("row:" + row + " col:" + col + " ->" + rowsOfStudents[row][col]);
+                            }
+                        }
+                    }
+                }
+                System.out.printf("All students are sitting in the lecture hall.%n");
+            }
         }
+        System.out.println(toString());
     }
 
     public void empty() {
