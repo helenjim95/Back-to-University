@@ -85,7 +85,7 @@ public class Lecture {
 //    so the steps have to be done for every single Participant now.
     public void addParticipant(Participant participant) {
         if (students.contains(participant) || tutors.contains(participant) || exerciseInstructors.contains(participant) || lecturer.equals(participant)) {
-            System.out.printf("%StumID:%s already attends/holds the lecture.%n", participant.getName(), participant.getTumID());
+            System.out.printf("%s tumID:%s already attends/holds the lecture.%n", participant.getName(), participant.getTumID());
         }
         else {
             String className = participant.getClass().getSimpleName();
