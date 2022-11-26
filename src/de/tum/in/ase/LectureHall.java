@@ -62,8 +62,8 @@ public class LectureHall {
                 System.out.printf("We can place only the first %d out of %d students.%n", capacity, waitingStudents.size());
             }
 
-            while (!waitingStudents.isEmpty()) {
-                int amountOfStudentFilled = 0;
+            int amountOfStudentFilled = 0;
+            while (!waitingStudents.isEmpty() && amountOfStudentFilled < capacity) {
                 for (int row = 0; row < rows; row++) {
                     for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
                         if (waitingStudents.isEmpty() || amountOfStudentFilled == capacity) {
@@ -74,7 +74,6 @@ public class LectureHall {
                             amountOfStudentFilled += 1;
                             rowsOfStudents[row][col] = waitingStudents.remove(0);
 //                            System.out.println("row:" + row + " col:" + col + " ->" + rowsOfStudents[row][col]);
-
                         }
                     }
                 }
