@@ -26,7 +26,8 @@ public class Main {
         List<Lecture> lectures = new ArrayList<>();
 //        System.out.println(lectureHall2.getRows());
 //        lectureHall2.placeStudents(studentList2);
-        tutorList1.get(0).attend(lecture2);
+        exerciseInstructorList1.get(0).attend(lecture1);
+        exerciseInstructorList1.get(0).attend(lecture1);
         lectures.add(lecture1);
         lectures.add(lecture2);
         lectures.add(lecture3);

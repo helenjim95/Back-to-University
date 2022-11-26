@@ -63,13 +63,15 @@ public class LectureHall {
             }
 
             while (!waitingStudents.isEmpty()) {
+                int amountOfStudentFilled = 0;
                 for (int row = 0; row < rows; row++) {
                     for (int col = 0; col < MAX_STUDENT_PER_ROW; col++) {
-                        if (waitingStudents.isEmpty()) {
+                        if (waitingStudents.isEmpty() || amountOfStudentFilled == capacity) {
                             break;
                         }
 //                        System.out.println("current student in row:" + row + " col:" + col + " is " + rowsOfStudents[row][col]);
                         if (rowsOfStudents[row][col] == null) {
+                            amountOfStudentFilled += 1;
                             rowsOfStudents[row][col] = waitingStudents.remove(0);
 //                            System.out.println("row:" + row + " col:" + col + " ->" + rowsOfStudents[row][col]);
 
